@@ -59,7 +59,7 @@
 		</tbody>
 	</table>
 	</div>
-	<Chart title={`Epicbet wager með Coobet wager = ${wager2}`} bind:studull1 bind:studull2 bind:wager={wager1}/>
+	<Chart title={`Epicbet wager = X,  Coobet wager = ${wager2}`} bind:studull1 bind:studull2 bind:wager={wager1}/>
 </main>
 
 <style>
