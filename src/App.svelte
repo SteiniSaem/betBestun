@@ -2,8 +2,8 @@
 	import Chart from "./lib/Chart.svelte";
 	let studull1 = 1.95
 	let studull2 = 1.95
-	let wager1 = 25
-	let wager2 = 25
+	let wager1 = 50
+	let wager2 = 50
 	let winnings1, winnings2
 	let loss1, loss2
    
@@ -15,8 +15,7 @@
 </script>
 
 <main class='w-full flex flex-col p-10 h-full'>
-	<h1 class="">Bet Bestun</h1>
-	<div class='flex justify-center mt-12'>
+	<div class='flex justify-center mt-2'>
 	<table>
 		<tbody>
 			<tr>

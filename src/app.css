@@ -20,6 +20,7 @@
 html{
   background: rgb(65,115,95);
   background: linear-gradient(330deg, rgb(45, 86, 95) 0%, rgb(36, 49, 108) 20%);
+  overflow: hidden;
 }
 
 a {
