@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Chart from "./lib/Chart.svelte";
+	import Settings from "./lib/Settings.svelte";
 	let studull1 = 1.95
 	let studull2 = 1.95
 	let wager1 = 50
@@ -14,49 +15,50 @@
 
 </script>
 
-<main class='w-full flex flex-col p-10 h-full'>
-	<div class='flex justify-center mt-2'>
-	<table>
-		<tbody>
-			<tr>
-				<td></td>
-				<td class='font-bold'>Epic Stuðull</td>
-				<td class='font-bold'>Cool Stuðull</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>      
-					<input type="number" class='w-32 text-center' step="0.01" bind:value={studull1}>
-				</td>
-				<td>
-					<input type="number" class='w-32 text-center' step="0.01" bind:value={studull2}>
-				</td>
-				<td class='font-bold'>Samtals Upphæð</td>
-			</tr>
-			<tr class='border-b border-white'>
-				<td class='font-bold'>Upphæð</td>
-				<td>
-					<input type="number" class='w-32 text-center' step="1" bind:value={wager1}>
-				</td>
-				<td>
-					<input type="number" class='w-32 text-center' step="1" bind:value={wager2}>
-				</td>
-				<td>{wager1 + wager2}</td>
-			</tr>
-			<tr>
-				<td class='font-bold'>Vinningur</td>
-				<td>{winnings1}</td>
-				<td>{winnings2}</td>
-			</tr>
-			<tr>
-				<td class='font-bold'>Tap</td>
-				<td>{loss1}</td>
-				<td>{loss2}</td>
-			</tr>
-		</tbody>
-	</table>
+<main class='w-full flex p-10 h-full'>
+	<div class=' mt-2 flex flex-col justify-between'>
+		<table>
+			<tbody>
+				<tr>
+					<td></td>
+					<td class='font-bold'>Epic Stuðull</td>
+					<td class='font-bold'>Cool Stuðull</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>      
+						<input type="number" class='w-32 text-center' step="0.01" bind:value={studull1}>
+					</td>
+					<td>
+						<input type="number" class='w-32 text-center' step="0.01" bind:value={studull2}>
+					</td>
+					<td class='font-bold'>Samtals Upphæð</td>
+				</tr>
+				<tr class='border-b border-white'>
+					<td class='font-bold'>Upphæð</td>
+					<td>
+						<input type="number" class='w-32 text-center' step="1" bind:value={wager1}>
+					</td>
+					<td>
+						<input type="number" class='w-32 text-center' step="1" bind:value={wager2}>
+					</td>
+					<td>{wager1 + wager2}</td>
+				</tr>
+				<tr>
+					<td class='font-bold'>Vinningur</td>
+					<td>{winnings1}</td>
+					<td>{winnings2}</td>
+				</tr>
+				<tr>
+					<td class='font-bold'>Tap</td>
+					<td>{loss1}</td>
+					<td>{loss2}</td>
+				</tr>
+			</tbody>
+		</table>
+		<Settings/>
 	</div>
-	<div class='flex w-full h-full mt-10'>
+	<div class='flex flex-col justify-between w-full ml-4'>
 		<Chart title={`Epicbet wager = X,  Coolbet wager = ${wager2}`} bind:studull1 bind:studull2 bind:wager={wager2} fixedWagerSite='Coolbet' variableWagerSite='Epicbet'/>
 		<Chart title={`Coolbet wager = X,  Epicbet wager = ${wager1}`} bind:studull1={studull2} bind:studull2={studull1} bind:wager={wager1} fixedWagerSite='Epicbet' variableWagerSite='Coolbet'/>
 	</div>
