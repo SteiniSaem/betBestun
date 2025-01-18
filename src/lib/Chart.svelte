@@ -2,6 +2,9 @@
 	import Chart from 'chart.js/auto';
     import { onMount } from 'svelte';
 	import { graphMargin, epicbetLineColor, coolbetLineColor } from './store';
+	import zoomPlugin, { resetZoom } from 'chartjs-plugin-zoom';
+
+	Chart.register(zoomPlugin);
 
 	export let title:string;
 	export let studull1:number;
@@ -117,6 +120,14 @@
 								intersect: false,
 								mode: 'index',
 								usePointStyle: true,
+							},
+							zoom: {
+								zoom: {
+									drag: {
+										enabled: true,
+									},
+									mode: 'x',
+								},
 							}
 						},
 						elements: {
@@ -136,9 +147,13 @@
 </script>
 
 <div class='w-full'>
-	<h2>{title}</h2>
+	<div class='flex justify-between'>
+		<div></div>	
+		<h2>{title}</h2>
+		<button class='text-xs' on:click={() => {resetZoom(chart)}}>Reset</button>
+	</div>
 	<div>
-		<canvas bind:this={canvas} height="370"></canvas>
+		<canvas class='text-xs' bind:this={canvas} height="370"></canvas>
 	</div>
 </div>
 

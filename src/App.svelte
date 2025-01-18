@@ -15,7 +15,7 @@
 
 </script>
 
-<main class='w-full flex p-10 h-full'>
+<main class='w-full flex p-10 h-full select-none'>
 	<div class=' mt-2 flex flex-col justify-between'>
 		<table>
 			<tbody>
