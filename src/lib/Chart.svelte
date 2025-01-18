@@ -138,6 +138,10 @@
 <div class='w-full'>
 	<h2>{title}</h2>
 	<div>
-		<canvas bind:this={canvas} height="450"></canvas>
+		<canvas bind:this={canvas} height="370"></canvas>
 	</div>
 </div>
+
+<style>
+</style>
+

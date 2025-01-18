@@ -58,7 +58,7 @@
 		</table>
 		<Settings/>
 	</div>
-	<div class='flex flex-col justify-between w-full ml-4'>
+	<div class='flex flex-col justify-between w-full h-full ml-4'>
 		<Chart title={`Epicbet wager = X,  Coolbet wager = ${wager2}`} bind:studull1 bind:studull2 bind:wager={wager2} fixedWagerSite='Coolbet' variableWagerSite='Epicbet'/>
 		<Chart title={`Coolbet wager = X,  Epicbet wager = ${wager1}`} bind:studull1={studull2} bind:studull2={studull1} bind:wager={wager1} fixedWagerSite='Epicbet' variableWagerSite='Coolbet'/>
 	</div>
