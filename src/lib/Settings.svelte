@@ -19,7 +19,7 @@
     <p>Mörk x-ása grafa (% frá fasta veðmáli)</p>
     <div class='flex w-full items-center justify-between'>
         <div class='w-full'>
-            <RangeSlider bind:value={$graphMargin} min={5} max={100}/>
+            <RangeSlider bind:value={$graphMargin} min={5} max={500}/>
         </div>
         <p class='text-xl'>{$graphMargin}%</p>
     </div>
