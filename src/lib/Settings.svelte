@@ -1,6 +1,6 @@
 <script>
     import RangeSlider from 'svelte-range-slider-pips';
-    import {graphMargin, epicbetLineColor, coolbetLineColor} from './store'
+    import {graphMargin, epicbetLineColor, coolbetLineColor, verticalLineColor} from './store'
     import ColorPicker from 'svelte-awesome-color-picker';
 
 
@@ -15,6 +15,10 @@
     <div class='flex items-center mb-2 dark'>
         <p class='mr-3'>Litur Coolbet línu:</p>
         <ColorPicker bind:rgb={$coolbetLineColor} label='' position='responsive'/>
+    </div>
+    <div class='flex items-center mb-2 dark'>
+        <p class='mr-3'>Litur lóðréttu línu:</p>
+        <ColorPicker bind:rgb={$verticalLineColor} label='' position='responsive'/>
     </div>
     <p>Mörk x-ása grafa (% frá fasta veðmáli)</p>
     <div class='flex w-full items-center justify-between'>

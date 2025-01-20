@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Chart from 'chart.js/auto';
     import { onMount } from 'svelte';
-	import { graphMargin, epicbetLineColor, coolbetLineColor } from './store';
+	import { graphMargin, epicbetLineColor, coolbetLineColor, verticalLineColor } from './store';
 	import zoomPlugin, { resetZoom } from 'chartjs-plugin-zoom';
 
 	Chart.register(zoomPlugin);
@@ -136,7 +136,7 @@
 									},
 									mode: 'x',
 								},
-							}
+							},
 						},
 						elements: {
 							point: {
@@ -144,6 +144,30 @@
 							}
 						}
 					},
+					plugins: [{
+						id: 'verticalLineOnCursor',
+						afterDraw: (chart) => {
+							const ctx = chart.ctx;
+							const chartArea = chart.chartArea;
+							console.log(chart.tooltip._active)
+
+							// Get the mouse position
+							const activeElement = chart.tooltip._active?.[0];
+							if (activeElement) {
+								const x = activeElement.element.x;
+
+								// Draw the vertical line
+								ctx.save();
+								ctx.beginPath();
+								ctx.moveTo(x, chartArea.top);
+								ctx.lineTo(x, chartArea.bottom);
+								ctx.lineWidth = 2;
+								ctx.strokeStyle = colorObjToString($verticalLineColor);
+								ctx.stroke();
+								ctx.restore();
+							}
+						}
+					}],
 					data: generateData()
 				}
 			);
