@@ -120,6 +120,14 @@
 								intersect: false,
 								mode: 'index',
 								usePointStyle: true,
+								callbacks: {
+									afterLabel: (context) => {
+										let wagerSum = wager + context.chart.data.labels[context.parsed.x]
+										let loss = context.parsed.y
+										let lossPercentage = (loss/wagerSum)*100
+										return `${Math.round(lossPercentage*100)/100}%`
+									}
+								}
 							},
 							zoom: {
 								zoom: {
